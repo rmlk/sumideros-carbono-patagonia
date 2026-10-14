@@ -102,7 +102,7 @@ def questions():
     by={1:[],2:[],3:[]}
     for q in QUESTIONS: by[q['d']].append(q)
     selected=random.sample(by[1],3)+random.sample(by[2],4)+random.sample(by[3],3)
-    return jsonify(questions=[{'q':x['q'],'a':x['a'],'d':x['d']} for x in selected])
+    return jsonify(questions=[{'q':x['q'],'a':x['a'],'c':x['c'],'d':x['d']} for x in selected])
 
 @app.post('/api/quiz-finished')
 def quiz_finished():
