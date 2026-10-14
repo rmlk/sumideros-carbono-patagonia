@@ -119,3 +119,44 @@
     overflow-wrap: anywhere;
   }
 }
+
+
+/* Corrección definitiva: video adaptable en escritorio y celular */
+.media-grid,
+.media-grid > *,
+.video-frame {
+  min-width: 0;
+  max-width: 100%;
+}
+.video-frame {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
+}
+.main-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  object-fit: contain;
+  background: #07130f;
+}
+@media (max-width: 900px) {
+  .media-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .media-grid > * {
+    min-width: 0;
+  }
+  .video-frame {
+    width: calc(100% - 10px);
+    margin-right: 10px;
+    box-shadow: 10px 10px 0 var(--acid);
+  }
+}
